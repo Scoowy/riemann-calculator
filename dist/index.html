@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumas de Riemman</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/materia/bootstrap.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JsxGraph -->
+    <script
+      type="text/javascript"
+      charset="UTF-8"
+      src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.2.1/jsxgraphcore.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.2.1/jsxgraph.css"
+    />
+
+    <!-- Math.js -->
+    <script src="https://unpkg.com/mathjs@9.1.0/lib/browser/math.js"></script>
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script> -->
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+    ></script>
+
+    <!-- Propios -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="display-3">Graficador Riemann - Integral</h1>
+      <p class="lead">
+        Presentación de una aplicación gráfica que permita al usuario introducir
+        una función, y poder seleccionar con que método resolver el área debajo
+        de una función usando la suma de Riemann y comparándolo con el resultado
+        de la integral de la misma función.
+      </p>
+
+      <div id="pretty" class="container text-center my-4 h2"></div>
+
+      <div class="row mb-4">
+        <div class="col-12 col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Opciones</h5>
+            </div>
+            <div class="card-body">
+              <form id="formOptions">
+                <div class="row g-3">
+                  <!-- Funcion -->
+                  <div class="col-8 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon1"
+                        ><strong>f(x) =</strong></span
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        id="inputVarF"
+                        name="inputVarF"
+                        aria-describedby="functionHelp"
+                      />
+                    </div>
+                    <div id="functionHelp" class="form-text">
+                      Funcion definida.
+                    </div>
+                  </div>
+
+                  <!-- Selector de metodo -->
+                  <div class="col-4 mb-3">
+                    <label for="method" class="form-label">Metodo</label>
+                    <select
+                      class="form-select"
+                      aria-label="Seleccion el tipo de suma"
+                      id="method"
+                      name="method"
+                    >
+                      <option value="1">Izquierda</option>
+                      <option value="2">Derecha</option>
+                      <option value="3">Medio</option>
+                      <option value="4">Bajo</option>
+                      <option value="5">Alto</option>
+                      <option value="6">Aleatorio</option>
+                      <option value="7">Simpson</option>
+                      <option value="8">Trapezoidal</option>
+                    </select>
+                  </div>
+
+                  <!-- Variable n -->
+                  <div class="col-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon-n"
+                        ><strong>n =</strong></span
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="inputVarN"
+                        name="inputVarN"
+                        min="1"
+                        max="500"
+                        value="10"
+                        aria-describedby="nHelp"
+                      />
+                    </div>
+                    <div id="nHelp" class="form-text">N° de rectangulos.</div>
+                  </div>
+
+                  <!-- Variable a -->
+                  <div class="col-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon-a"
+                        ><strong>a =</strong></span
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="inputVarA"
+                        name="inputVarA"
+                        min="-10"
+                        max="10"
+                        value="-5"
+                        aria-describedby="aHelp"
+                      />
+                    </div>
+                    <div id="aHelp" class="form-text">Punto inicial.</div>
+                  </div>
+
+                  <!-- Variable b -->
+                  <div class="col-4 mb-3">
+                    <!-- <label for="inputVarB" class="form-label">n</label> -->
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon-b"
+                        ><strong>b =</strong></span
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="inputVarB"
+                        name="inputVarB"
+                        min="-10"
+                        max="10"
+                        value="5"
+                        aria-describedby="bHelp"
+                      />
+                    </div>
+                    <div id="bHelp" class="form-text">Punto final.</div>
+                  </div>
+                </div>
+
+                <!-- Boton graficar -->
+                <button
+                  type="submit"
+                  id="btnGraph"
+                  class="btn btn-lg btn-outline-primary"
+                >
+                  Resolver funcion
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Suma de Riemman</h5>
+            </div>
+            <div class="card-body">
+              <div id="jsgbox" class="jsgbox"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Integral</h5>
+            </div>
+            <div class="card-body">
+              <div id="jsgboxIntegral" class="jsgboxIntegral"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted"
+          >Proyecto del componente academico <b>Calculo</b>, por
+          <b>Jomara Guerrero</b>, <b>Juan Gahona</b> & <b>Eduardo Sarango</b>.
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/riemann.js"></script>
+    <script type="module" src="js/integral.js"></script>
+    <script type="module" src="js/prettyMath.js"></script>
+  </body>
+</html>
