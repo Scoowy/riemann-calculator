@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora Riemman - Integral</title>
+    <title>Graficador Riemman - Integral</title>
 
     <!-- Bootstrap -->
     <link
@@ -64,17 +64,39 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="display-3">Graficador Riemann - Integral</h1>
-      <p class="lead">
-        Presentación de una aplicación gráfica que permita al usuario introducir
-        una función, y poder seleccionar con que método resolver el área debajo
-        de una función usando la suma de Riemann y comparándolo con el resultado
-        de la integral de la misma función.
-      </p>
+      <section class="row mb-4 pt-5">
+        <div class="text-center mb-4">
+          <img src="/img/logo.png" class="" alt="Logotipo" />
+        </div>
+        <h1 class="display-3 text-center">Graficador Riemann - Integral</h1>
+        <p class="display-6 text-center">
+          Proyecto final del componente académico Cálculo.
+        </p>
+        <b class="h1 text-center">Tema</b><br />
+        <p class="display-6 text-center">
+          Desarrollo de un software que contemple la resolución del área de una
+          función.
+        </p>
 
-      <div id="pretty" class="container text-center my-4 h2"></div>
+        <p class="lead text-center">
+          <b class="h2">Integrantes</b><br />
+          Yomar Mishell Guerrero Jimenez <br />
+          Juan José Gahona Cañar <br />
+          Eduardo Francisco Sarango Ajila
+        </p>
+        <p class="lead text-center">
+          <b class="h2">Repositorio</b><br />
+          <a
+            class="link h1"
+            target="_blank"
+            href="https://github.com/Scoowy/riemann-calculator"
+            ><i class="bi bi-github"></i
+          ></a>
+        </p>
+      </section>
 
       <section class="row mb-4">
+        <div id="pretty" class="container text-center mb-4 h2"></div>
         <div class="col-12 col-lg-6">
           <div class="card">
             <div class="card-header">
@@ -198,7 +220,7 @@
         </div>
       </section>
 
-      <section class="row">
+      <section class="row mb-4">
         <div class="col-12 col-lg-6 mb-4">
           <div class="card">
             <div class="card-header">
@@ -228,6 +250,18 @@
           dividirla en varias formas simples (tales como rectángulos o
           trapecios).
         </p>
+        <p class="col-12 lead">
+          Los cuatro métodos de la suma de Riemann generalmente se abordan mejor
+          con particiones del mismo tamaño. Por lo tanto, el intervalo
+          $${\displaystyle [a,b]}$$ se divide en n subintervalos, cada uno de
+          longitud $${\displaystyle \Delta x={\frac {b-a}{n}}}$$Los puntos en la
+          partición serán entonces
+        </p>
+        <p class="col-12 lead">
+          $${\displaystyle a,a+\Delta x,a+2\,\Delta x,\ldots ,a+(n-2)\,\Delta
+          x,a+(n-1)\,\Delta x,b}$$
+        </p>
+
         <div class="row g-3">
           <div class="col-12 col-md-6 col-lg-3">
             <div class="card">
@@ -311,13 +345,14 @@
 
         <h3>General</h3>
         <p class="lead">
-          Se pretende desarrollar una aplicación gráfica que permita al usuario
-          introducir una función, y poder seleccionar con que método (Riemann o
-          Integral) resolver el área debajo de una función.
+          Presentación de una aplicación gráfica que permita al usuario
+          introducir una función, y poder seleccionar con que método resolver el
+          área debajo de una función usando la suma de Riemann y comparándolo
+          con el resultado de la integral de la misma función.
         </p>
 
         <h3>Específicos</h3>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-4">
           <ul class="list-group lead">
             <li class="list-group-item">Interfaz gráfica</li>
             <li class="list-group-item">
@@ -335,9 +370,25 @@
         <h2>Resultados</h2>
         <p class="lead">
           Tenemos que gracias a la aplicación de esta propuesta se ha logrado
-          determinar que la suma de Riemann siempre nos da un valor lo mas o
-          menos aproximado al calculo de la función integral.
+          determinar que la suma de Riemann siempre nos da un valor más o menos
+          aproximado al calculo de la función integral.
         </p>
+
+        <blockquote class="blockquote">
+          Usando el método de punto izquierda el valor obtenido siempre se
+          aproxima al resultado obteniendo un valor por debajo de la integral.
+        </blockquote>
+
+        <blockquote class="blockquote">
+          Usando el método de punto derecha el valor obtenido siempre se
+          aproxima al resultado obteniendo un valor por encima de la integral.
+        </blockquote>
+
+        <blockquote class="blockquote">
+          Usando el método de punto medio el valor obtenido es el resultado que
+          más se aproxima, está variación es más notoria cuando se trabaja con
+          un numero alto de decimales.
+        </blockquote>
       </section>
 
       <section class="row mb-4">
