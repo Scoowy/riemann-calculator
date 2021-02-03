@@ -222,13 +222,103 @@
       </section>
 
       <section class="row mb-4">
-        <h2>Teoría</h2>
+        <h2>Introducción</h2>
+        <p class="col-12 lead">
+          Una suma de Riemann es una aproximación del área bajo la curva, al
+          dividirla en varias formas simples (tales como rectángulos o
+          trapecios).
+        </p>
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/LeftRiemann.png"
+                alt="Left Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  En una suma de Riemann izquierda aproximamos el área con
+                  rectángulos (normalmente de ancho igual), donde la altura de
+                  cada rectángulo es igual al valor de la función en el extremo
+                  izquierdo de su base.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/RightRiemann.png"
+                alt="Right Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  En una suma de Riemann derecha la altura de cada rectángulo es
+                  igual al valor de la función en el extremo derecho de su base.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/MiddleRiemann.png"
+                alt="Middle Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  En una suma de Riemann de punto medio la altura de cada
+                  rectángulo es igual al valor de la función en el punto medio
+                  de su base.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/TrapRiemann.png"
+                alt="Trapezoidal Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  Podemos también usar trapecios para aproximar el área (esto se
+                  llama regla del trapecio). En este caso, cada trapecio toca la
+                  curva en sus dos vértices superiores.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="col-12 mt-4 lead">
+          Para cada tipo de aproximación, mientras más formas usemos más cercana
+          será la aproximación al área real. Las referencias difieren en este
+          punto, pero nosotros llamamos suma de Riemann a cualquier aproximación
+          que use rectángulos y suma trapezoidal a cualquier aproximación que
+          use trapecios.
+        </p>
       </section>
 
       <section class="row mb-4">
-        <h2>Características</h2>
-        <div class="col-6">
-          <ul class="list-group">
+        <h2>Objetivos</h2>
+
+        <h3>General</h3>
+        <p class="lead">
+          Se pretende desarrollar una aplicación gráfica que permita al usuario
+          introducir una función, y poder seleccionar con que método (Riemann o
+          Integral) resolver el área debajo de una función.
+        </p>
+
+        <h3>Específicos</h3>
+        <div class="col-12 col-md-6">
+          <ul class="list-group lead">
             <li class="list-group-item">Interfaz gráfica</li>
             <li class="list-group-item">
               Representación gráfica de la función
@@ -242,12 +332,21 @@
       </section>
 
       <section class="row mb-4">
+        <h2>Resultados</h2>
+        <p class="lead">
+          Tenemos que gracias a la aplicación de esta propuesta se ha logrado
+          determinar que la suma de Riemann siempre nos da un valor lo mas o
+          menos aproximado al calculo de la función integral.
+        </p>
+      </section>
+
+      <section class="row mb-4">
         <h2>Herramientas</h2>
-        <p>
+        <p class="lead">
           Para el desarrollo del presente proyecto mostrado, se hizo uso de las
           librerías y herramientas siguientes:
         </p>
-        <table class="table table-hover">
+        <table class="table table-hover lead">
           <caption>
             Tabla 1.- Lista de librerias
           </caption>
