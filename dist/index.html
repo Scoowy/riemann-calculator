@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sumas de Riemman</title>
+    <title>Graficador Riemman - Integral</title>
 
     <!-- Bootstrap -->
     <link
@@ -12,6 +12,8 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
+
+    <!-- Bootswatch -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/materia/bootstrap.min.css"
@@ -21,6 +23,12 @@
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Botstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
 
     <!-- JsxGraph -->
     <script
@@ -37,8 +45,10 @@
     <!-- Math.js -->
     <script src="https://unpkg.com/mathjs@9.1.0/lib/browser/math.js"></script>
 
-    <!-- MathJax -->
+    <!-- Polyfill -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <!-- MathJax -->
     <!-- <script
       id="MathJax-script"
       async
@@ -46,7 +56,6 @@
     ></script> -->
     <script
       id="MathJax-script"
-      async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
     ></script>
 
@@ -55,17 +64,39 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="display-3">Graficador Riemann - Integral</h1>
-      <p class="lead">
-        Presentación de una aplicación gráfica que permita al usuario introducir
-        una función, y poder seleccionar con que método resolver el área debajo
-        de una función usando la suma de Riemann y comparándolo con el resultado
-        de la integral de la misma función.
-      </p>
+      <section class="row mb-4 pt-5">
+        <div class="text-center mb-4">
+          <img src="/img/logo.png" class="" alt="Logotipo" />
+        </div>
+        <h1 class="display-3 text-center">Graficador Riemann - Integral</h1>
+        <p class="display-6 text-center">
+          Proyecto final del componente académico Cálculo.
+        </p>
+        <b class="h1 text-center">Tema</b><br />
+        <p class="display-6 text-center">
+          Desarrollo de un software que contemple la resolución del área de una
+          función.
+        </p>
 
-      <div id="pretty" class="container text-center my-4 h2"></div>
+        <p class="lead text-center">
+          <b class="h2">Integrantes</b><br />
+          Yomar Mishell Guerrero Jimenez <br />
+          Juan José Gahona Cañar <br />
+          Eduardo Francisco Sarango Ajila
+        </p>
+        <p class="lead text-center">
+          <b class="h2">Repositorio</b><br />
+          <a
+            class="link h1"
+            target="_blank"
+            href="https://github.com/Scoowy/riemann-calculator"
+            ><i class="bi bi-github"></i
+          ></a>
+        </p>
+      </section>
 
-      <div class="row mb-4">
+      <section class="row mb-4">
+        <div id="pretty" class="container text-center mb-4 h2"></div>
         <div class="col-12 col-lg-6">
           <div class="card">
             <div class="card-header">
@@ -95,7 +126,7 @@
 
                   <!-- Selector de metodo -->
                   <div class="col-4 mb-3">
-                    <label for="method" class="form-label">Metodo</label>
+                    <label for="method" class="form-label">Método</label>
                     <select
                       class="form-select"
                       aria-label="Seleccion el tipo de suma"
@@ -130,7 +161,7 @@
                         aria-describedby="nHelp"
                       />
                     </div>
-                    <div id="nHelp" class="form-text">N° de rectangulos.</div>
+                    <div id="nHelp" class="form-text">N° de rectángulos.</div>
                   </div>
 
                   <!-- Variable a -->
@@ -181,15 +212,15 @@
                   id="btnGraph"
                   class="btn btn-lg btn-outline-primary"
                 >
-                  Resolver funcion
+                  Resolver función
                 </button>
               </form>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="row">
+      <section class="row mb-4">
         <div class="col-12 col-lg-6 mb-4">
           <div class="card">
             <div class="card-header">
@@ -210,14 +241,290 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="row mb-4">
+        <h2>Introducción</h2>
+        <p class="col-12 lead">
+          Una suma de Riemann es una aproximación del área bajo la curva, al
+          dividirla en varias formas simples (tales como rectángulos o
+          trapecios).
+        </p>
+        <p class="col-12 lead">
+          Los cuatro métodos de la suma de Riemann generalmente se abordan mejor
+          con particiones del mismo tamaño. Por lo tanto, el intervalo
+          $${\displaystyle [a,b]}$$ se divide en n subintervalos, cada uno de
+          longitud $${\displaystyle \Delta x={\frac {b-a}{n}}}$$Los puntos en la
+          partición serán entonces
+        </p>
+        <p class="col-12 lead">
+          $${\displaystyle a,a+\Delta x,a+2\,\Delta x,\ldots ,a+(n-2)\,\Delta
+          x,a+(n-1)\,\Delta x,b}$$
+        </p>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/LeftRiemann.png"
+                alt="Left Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  En una suma de Riemann izquierda aproximamos el área con
+                  rectángulos (normalmente de ancho igual), donde la altura de
+                  cada rectángulo es igual al valor de la función en el extremo
+                  izquierdo de su base.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/RightRiemann.png"
+                alt="Right Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  En una suma de Riemann derecha la altura de cada rectángulo es
+                  igual al valor de la función en el extremo derecho de su base.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/MiddleRiemann.png"
+                alt="Middle Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  En una suma de Riemann de punto medio la altura de cada
+                  rectángulo es igual al valor de la función en el punto medio
+                  de su base.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="/img/TrapRiemann.png"
+                alt="Trapezoidal Riemann"
+              />
+              <div class="card-body">
+                <p class="card-text lead">
+                  Podemos también usar trapecios para aproximar el área (esto se
+                  llama regla del trapecio). En este caso, cada trapecio toca la
+                  curva en sus dos vértices superiores.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="col-12 mt-4 lead">
+          Para cada tipo de aproximación, mientras más formas usemos más cercana
+          será la aproximación al área real. Las referencias difieren en este
+          punto, pero nosotros llamamos suma de Riemann a cualquier aproximación
+          que use rectángulos y suma trapezoidal a cualquier aproximación que
+          use trapecios.
+        </p>
+      </section>
+
+      <section class="row mb-4">
+        <h2>Objetivos</h2>
+
+        <h3>General</h3>
+        <p class="lead">
+          Presentación de una aplicación gráfica que permita al usuario
+          introducir una función, y poder seleccionar con que método resolver el
+          área debajo de una función usando la suma de Riemann y comparándolo
+          con el resultado de la integral de la misma función.
+        </p>
+
+        <h3>Específicos</h3>
+        <div class="col-12 col-md-6 mb-4">
+          <ul class="list-group lead">
+            <li class="list-group-item">Interfaz gráfica</li>
+            <li class="list-group-item">
+              Representación gráfica de la función
+            </li>
+            <li class="list-group-item">
+              Representación gráfica del área de la función
+            </li>
+            <li class="list-group-item">Opciones de resolución del área</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="row mb-4">
+        <h2>Resultados</h2>
+        <p class="lead">
+          Tenemos que gracias a la aplicación de esta propuesta se ha logrado
+          determinar que la suma de Riemann siempre nos da un valor más o menos
+          aproximado al calculo de la función integral.
+        </p>
+
+        <blockquote class="blockquote">
+          Usando el método de punto izquierda el valor obtenido siempre se
+          aproxima al resultado obteniendo un valor por debajo de la integral.
+        </blockquote>
+
+        <blockquote class="blockquote">
+          Usando el método de punto derecha el valor obtenido siempre se
+          aproxima al resultado obteniendo un valor por encima de la integral.
+        </blockquote>
+
+        <blockquote class="blockquote">
+          Usando el método de punto medio el valor obtenido es el resultado que
+          más se aproxima, está variación es más notoria cuando se trabaja con
+          un numero alto de decimales.
+        </blockquote>
+      </section>
+
+      <section class="row mb-4">
+        <h2>Herramientas</h2>
+        <p class="lead">
+          Para el desarrollo del presente proyecto mostrado, se hizo uso de las
+          librerías y herramientas siguientes:
+        </p>
+        <table class="table table-hover lead">
+          <caption>
+            Tabla 1.- Lista de librerias
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Grupo</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Versión</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Web</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3">Core</td>
+              <td>JSXGraph</td>
+              <td>v1.2.1</td>
+              <td>
+                JSXGraph is a cross-browser JavaScript library for interactive
+                geometry, function plotting, charting, and data visualization in
+                the web browser.
+              </td>
+              <td>
+                <a
+                  target="_blank"
+                  href="https://jsxgraph.uni-bayreuth.de/wp/index.html"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>Math.js</td>
+              <td>v9.1.0</td>
+              <td>
+                Math.js is an extensive math library for JavaScript and Node.js.
+                It features a flexible expression parser with support for
+                symbolic computation, comes with a large set of built-in
+                functions and constants, and offers an integrated solution to
+                work with different data types like numbers, big numbers,
+                complex numbers, fractions, units, and matrices. Powerful and
+                easy to use.
+              </td>
+              <td>
+                <a target="_blank" href="https://mathjs.org/"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>MathJax</td>
+              <td>v3.0.0</td>
+              <td>
+                A JavaScript display engine for mathematics that works in all
+                browsers. No more setup for readers. It just works.
+              </td>
+              <td>
+                <a target="_blank" href="https://www.mathjax.org/"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>Herramientas</td>
+              <td>Polyfill.io</td>
+              <td>v3.0.0</td>
+              <td>
+                It's a service which accepts a request for a set of browser
+                features and returns only the polyfills that are needed by the
+                requesting browser.
+              </td>
+              <td>
+                <a target="_blank" href="https://polyfill.io/v3/"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="3">Estilos</td>
+              <td>Bootstrap</td>
+              <td>v5.0.0-beta1</td>
+              <td>
+                Quickly design and customize responsive mobile-first sites with
+                Bootstrap, the world’s most popular front-end open source
+                toolkit, featuring Sass variables and mixins, responsive grid
+                system, extensive prebuilt components, and powerful JavaScript
+                plugins.
+              </td>
+              <td>
+                <a target="_blank" href="https://getbootstrap.com/"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>Bootswatch</td>
+              <td>v4.6.0</td>
+              <td>Free themes for Bootstrap.</td>
+              <td>
+                <a target="_blank" href="https://bootswatch.com/"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>Bootstrap Icons</td>
+              <td>v1.3.0</td>
+              <td>
+                Free, high quality, open source icon library with nearly 1,200
+                icons. Include them anyway you like—SVGs, SVG sprite, or web
+                fonts. Use them with or without Bootstrap in any project.
+              </td>
+              <td>
+                <a target="_blank" href="https://icons.getbootstrap.com/"
+                  ><i class="bi-link-45deg" style="font-size: 1.5rem"></i
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
 
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
         <span class="text-muted"
-          >Proyecto del componente academico <b>Calculo</b>, por
-          <b>Jomara Guerrero</b>, <b>Juan Gahona</b> & <b>Eduardo Sarango</b>.
+          >Proyecto del componente académico <b>Calculo</b>, por
+          <b>Jomar Guerrero</b>, <b>Juan Gahona</b> & <b>Eduardo Sarango</b>.
         </span>
       </div>
     </footer>
