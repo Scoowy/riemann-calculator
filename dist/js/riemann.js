@@ -22,7 +22,7 @@ export class GraphRiemman {
         [5, 3],
         [-10, varA, 10]
       ],
-      { name: "a" }
+      { name: "a", snapWidth: 1 }
     );
 
     this.b = this.board.create(
@@ -32,7 +32,7 @@ export class GraphRiemman {
         [5, 2],
         [-10, varB, 10]
       ],
-      { name: "b" }
+      { name: "b", snapWidth: 1 }
     );
 
     // this.f = function (x) {
